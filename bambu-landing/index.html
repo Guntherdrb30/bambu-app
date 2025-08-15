@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bambu App</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <h1>Bambu App</h1>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h2>Láminas de Bambú de Alta Calidad</h2>
+                <p>Transforma tus espacios con la belleza y sostenibilidad del bambú.</p>
+                <button id="open-modal-btn" class="cta-button">Comprar por WhatsApp</button>
+            </div>
+        </section>
+
+        <section id="producto">
+            <div class="container">
+                <h3>Nuestro Producto</h3>
+                <p>Ofrecemos láminas de bambú en diversas medidas, perfectas para cualquier proyecto de diseño interior o exterior.</p>
+                <!-- Product details here -->
+            </div>
+        </section>
+
+        <section id="contacto">
+            <div class="container">
+                <h3>Contacto</h3>
+                <form id="contact-form">
+                    <input type="text" id="contact-name" placeholder="Nombre">
+                    <input type="email" id="contact-email" placeholder="Email">
+                    <input type="tel" id="contact-phone" placeholder="Teléfono">
+                    <textarea id="contact-notes" placeholder="Mensaje"></textarea>
+                    <button type="submit" class="cta-button-secondary">Enviar Mensaje</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Bambu App. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal para Comprar por WhatsApp -->
+    <div id="whatsapp-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Cotizar por WhatsApp</h3>
+            <form id="whatsapp-form">
+                <p>Indica las cantidades que necesitas:</p>
+                <label for="qty_122x300">1.22m x 3.00m</label>
+                <input type="number" id="qty_122x300" value="0" min="0">
+                
+                <label for="qty_60x300">0.60m x 3.00m</label>
+                <input type="number" id="qty_60x300" value="0" min="0">
+
+                <label for="qty_40x300">0.40m x 3.00m</label>
+                <input type="number" id="qty_40x300" value="0" min="0">
+
+                <p>Completa tus datos de contacto:</p>
+                <input type="text" id="modal-name" placeholder="Nombre">
+                <input type="email" id="modal-email" placeholder="Email">
+                <input type="tel" id="modal-phone" placeholder="Teléfono (requerido para WhatsApp)">
+                <input type="text" id="modal-city" placeholder="Ciudad">
+                <textarea id="modal-notes" placeholder="Notas adicionales"></textarea>
+                <button type="submit" class="cta-button">Enviar y Abrir WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>
