@@ -63,6 +63,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
             await submitLead(data, false, submitButton);
         });
+
+        // --- Product Carousel Logic ---
+        const productGrid = document.querySelector('.product-grid');
+        if (productGrid) {
+            const prevBtn = document.querySelector('#producto .carousel-btn.prev');
+            const nextBtn = document.querySelector('#producto .carousel-btn.next');
+            
+            const scrollCarousel = (direction) => {
+                const card = productGrid.querySelector('.product-card');
+                if (!card) return; // No cards, do nothing
+
+                const gap = 30; // Must match the 'gap' in CSS
+                const scrollAmount = card.offsetWidth + gap;
+
+                productGrid.scrollBy({
+                    left: scrollAmount * direction,
+                    behavior: 'smooth'
+                });
+            };
+
+            nextBtn.addEventListener('click', () => scrollCarousel(1));
+            prevBtn.addEventListener('click', () => scrollCarousel(-1));
+
+            const updateButtonState = () => {
+                if (!prevBtn || !nextBtn) return;
+                // A small tolerance is needed for floating point inaccuracies
+                const isAtStart = productGrid.scrollLeft < 10;
+                const isAtEnd = productGrid.scrollLeft + productGrid.clientWidth >= productGrid.scrollWidth - 10;
+
+                prevBtn.disabled = isAtStart;
+                nextBtn.disabled = isAtEnd;
+            };
+
+            productGrid.addEventListener('scroll', updateButtonState);
+            window.addEventListener('resize', updateButtonState);
+            setTimeout(updateButtonState, 100); // Initial check
+        }
     }
 
     async function submitLead(data, openWhatsApp, submitButton) {
