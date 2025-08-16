@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bambu App</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo="> <!-- Placeholder favicon to prevent 404 -->
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -15,31 +16,88 @@
 
     <main>
         <section id="hero">
-            <div class="container">
+            <div class="hero-content">
                 <h2>Láminas de Bambú de Alta Calidad</h2>
                 <p>Transforma tus espacios con la belleza y sostenibilidad del bambú.</p>
-                <button id="open-modal-btn" class="cta-button">Comprar por WhatsApp</button>
+                <button id="open-modal-btn" class="cta-button">Cotizar por WhatsApp</button>
+            </div>
+        </section>
+
+        <section id="beneficios">
+            <div class="container">
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <span class="icon">🌿</span>
+                        <h4>Sostenible</h4>
+                        <p>Un recurso renovable y amigable con el planeta.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="icon">💪</span>
+                        <h4>Durable</h4>
+                        <p>Resistencia y longevidad para tus proyectos.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="icon">✨</span>
+                        <h4>Estética Única</h4>
+                        <p>Aporta calidez y un estilo natural inigualable.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="producto">
             <div class="container">
                 <h3>Nuestro Producto</h3>
-                <p>Ofrecemos láminas de bambú en diversas medidas, perfectas para cualquier proyecto de diseño interior o exterior.</p>
-                <!-- Product details here -->
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="assets/images/producto-1.jpg" alt="Lámina de bambú grande">
+                        <h4>Medida 1.22m x 3.00m</h4>
+                        <p>Ideal para revestimientos de paredes y techos amplios.</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="assets/images/producto-2.jpg" alt="Lámina de bambú mediana">
+                        <h4>Medida 0.60m x 3.00m</h4>
+                        <p>Perfecta para mobiliario, puertas y detalles decorativos.</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="assets/images/producto-3.jpg" alt="Lámina de bambú pequeña">
+                        <h4>Medida 0.40m x 3.00m</h4>
+                        <p>Excelente para proyectos de manualidades y acabados finos.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="contacto">
             <div class="container">
-                <h3>Contacto</h3>
+                <h3>¿Tienes una consulta general?</h3>
+                <p>Si no deseas cotizar ahora, déjanos tu mensaje y te contactaremos a la brevedad.</p>
                 <form id="contact-form">
-                    <input type="text" id="contact-name" placeholder="Nombre">
-                    <input type="email" id="contact-email" placeholder="Email">
-                    <input type="tel" id="contact-phone" placeholder="Teléfono">
-                    <textarea id="contact-notes" placeholder="Mensaje"></textarea>
+                    <label for="contact-name">Nombre</label>
+                    <input type="text" id="contact-name" placeholder="Tu nombre completo">
+                    <label for="contact-email">Email</label>
+                    <input type="email" id="contact-email" placeholder="ejemplo@correo.com">
+                    <label for="contact-phone">Teléfono</label>
+                    <input type="tel" id="contact-phone" placeholder="Tu número de teléfono">
+                    <label for="contact-notes">Mensaje</label>
+                    <textarea id="contact-notes" placeholder="Escribe aquí tu consulta..."></textarea>
                     <button type="submit" class="cta-button-secondary">Enviar Mensaje</button>
                 </form>
+            </div>
+        </section>
+
+        <section id="testimonios">
+            <div class="container">
+                <h3>Lo que dicen nuestros clientes</h3>
+                <div class="testimonial">
+                    <blockquote>
+                        "La calidad de las láminas es excepcional. Transformaron por completo mi sala de estar. ¡El servicio por WhatsApp fue rápido y eficiente!"
+                    </blockquote>
+                    <cite>
+                        <img src="assets/images/avatar-cliente.png" alt="Avatar de cliente satisfecho">
+                        - Ana Pérez, Diseñadora de Interiores
+                    </cite>
+                </div>
             </div>
         </section>
     </main>
@@ -57,21 +115,30 @@
             <h3>Cotizar por WhatsApp</h3>
             <form id="whatsapp-form">
                 <p>Indica las cantidades que necesitas:</p>
-                <label for="qty_122x300">1.22m x 3.00m</label>
-                <input type="number" id="qty_122x300" value="0" min="0">
-                
-                <label for="qty_60x300">0.60m x 3.00m</label>
-                <input type="number" id="qty_60x300" value="0" min="0">
-
-                <label for="qty_40x300">0.40m x 3.00m</label>
-                <input type="number" id="qty_40x300" value="0" min="0">
+                <div>
+                    <label for="qty_122x300">1.22m x 3.00m</label>
+                    <input type="number" id="qty_122x300" value="0" min="0">
+                </div>
+                <div>
+                    <label for="qty_60x300">0.60m x 3.00m</label>
+                    <input type="number" id="qty_60x300" value="0" min="0">
+                </div>
+                <div>
+                    <label for="qty_40x300">0.40m x 3.00m</label>
+                    <input type="number" id="qty_40x300" value="0" min="0">
+                </div>
 
                 <p>Completa tus datos de contacto:</p>
-                <input type="text" id="modal-name" placeholder="Nombre">
-                <input type="email" id="modal-email" placeholder="Email">
-                <input type="tel" id="modal-phone" placeholder="Teléfono (requerido para WhatsApp)">
-                <input type="text" id="modal-city" placeholder="Ciudad">
-                <textarea id="modal-notes" placeholder="Notas adicionales"></textarea>
+                <label for="modal-name">Nombre</label>
+                <input type="text" id="modal-name" placeholder="Tu nombre completo">
+                <label for="modal-email">Email</label>
+                <input type="email" id="modal-email" placeholder="ejemplo@correo.com">
+                <label for="modal-phone">Teléfono (requerido para WhatsApp)</label>
+                <input type="tel" id="modal-phone" placeholder="Tu número para contactarte" required>
+                <label for="modal-city">Ciudad</label>
+                <input type="text" id="modal-city" placeholder="Ciudad de envío">
+                <label for="modal-notes">Notas adicionales</label>
+                <textarea id="modal-notes" placeholder="Cualquier detalle extra..."></textarea>
                 <button type="submit" class="cta-button">Enviar y Abrir WhatsApp</button>
             </form>
         </div>

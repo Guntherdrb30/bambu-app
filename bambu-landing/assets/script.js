@@ -10,11 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const openModalBtn = document.getElementById('open-modal-btn');
         const closeModalBtn = document.querySelector('.close-btn');
 
-        openModalBtn.onclick = () => modal.style.display = 'block';
-        closeModalBtn.onclick = () => modal.style.display = 'none';
+        openModalBtn.onclick = () => modal.classList.add('show');
+        closeModalBtn.onclick = () => modal.classList.remove('show');
         window.onclick = (event) => {
             if (event.target == modal) {
-                modal.style.display = 'none';
+                modal.classList.remove('show');
             }
         };
 
@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const whatsappForm = document.getElementById('whatsapp-form');
         whatsappForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+            const submitButton = whatsappForm.querySelector('button[type="submit"]');
             const data = {
                 name: document.getElementById('modal-name').value,
                 phone: document.getElementById('modal-phone').value,
@@ -39,13 +40,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            await submitLead(data, true);
+            await submitLead(data, true, submitButton);
         });
 
         // Handle Contact Form Submission
         const contactForm = document.getElementById('contact-form');
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+            const submitButton = contactForm.querySelector('button[type="submit"]');
             const data = {
                 name: document.getElementById('contact-name').value,
                 phone: document.getElementById('contact-phone').value,
@@ -59,11 +61,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            await submitLead(data, false);
+            await submitLead(data, false, submitButton);
         });
     }
 
-    async function submitLead(data, openWhatsApp) {
+    async function submitLead(data, openWhatsApp, submitButton) {
+        const originalButtonText = submitButton.innerHTML;
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<span class="spinner"></span> Enviando...';
+
         try {
             const response = await fetch(`${VITE_API_URL}/leads`, {
                 method: 'POST',
@@ -89,11 +95,14 @@ document.addEventListener('DOMContentLoaded', () => {
             // Reset forms
             document.getElementById('whatsapp-form')?.reset();
             document.getElementById('contact-form')?.reset();
-            if(document.getElementById('whatsapp-modal')) document.getElementById('whatsapp-modal').style.display = 'none';
+            if(document.getElementById('whatsapp-modal')) document.getElementById('whatsapp-modal').classList.remove('show');
 
         } catch (error) {
             console.error(error);
             alert('Hubo un problema al enviar tu solicitud. Por favor, inténtalo de nuevo.');
+        } finally {
+            submitButton.disabled = false;
+            submitButton.innerHTML = originalButtonText;
         }
     }
 
@@ -102,26 +111,37 @@ document.addEventListener('DOMContentLoaded', () => {
         const viewLeadsBtn = document.getElementById('view-leads-btn');
         const downloadCsvBtn = document.getElementById('download-csv-btn');
         const resultsDiv = document.getElementById('results');
+        
+        function getAdminToken() {
+            const token = document.getElementById('admin-token').value;
+            if (!token) {
+                alert('Por favor, introduce el token.');
+                return null;
+            }
+            return token;
+        }
 
         viewLeadsBtn.addEventListener('click', async () => {
-            const token = document.getElementById('admin-token').value;
-            if (!token) { alert('Por favor, introduce el token.'); return; }
+            const token = getAdminToken();
+            if (!token) return;
             try {
                 const res = await fetch(`${VITE_API_URL}/admin/leads`, { headers: { 'Authorization': `Bearer ${token}` } });
                 if(res.status === 401) { alert('Token no válido.'); return; }
+                if (!res.ok) throw new Error(`Error del servidor: ${res.statusText}`);
                 const leads = await res.json();
                 displayLeads(leads);
             } catch (err) {
                 resultsDiv.innerHTML = `<p>Error: ${err.message}</p>`;
             }
         });
-
+        
         downloadCsvBtn.addEventListener('click', async () => {
-            const token = document.getElementById('admin-token').value;
-            if (!token) { alert('Por favor, introduce el token.'); return; }
+            const token = getAdminToken();
+            if (!token) return;
             try {
                 const res = await fetch(`${VITE_API_URL}/admin/csv`, { headers: { 'Authorization': `Bearer ${token}` } });
                 if(res.status === 401) { alert('Token no válido.'); return; }
+                if (!res.ok) throw new Error(`Error del servidor: ${res.statusText}`);
                 const blob = await res.blob();
                 const url = window.URL.createObjectURL(blob);
                 const a = document.createElement('a');
@@ -132,6 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.body.appendChild(a);
                 a.click();
                 window.URL.revokeObjectURL(url);
+                a.remove();
             } catch (err) {
                 resultsDiv.innerHTML = `<p>Error: ${err.message}</p>`;
             }
