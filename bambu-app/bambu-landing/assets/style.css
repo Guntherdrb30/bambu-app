@@ -79,13 +79,13 @@ main {
     background-size: cover;
     background-position: center;
     color: white;
-    height: calc(75vh - 70px); /* Reduced by 25% */
+    height: 100vh; /* Set a fixed height for testing */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    position: relative; /* Added for image positioning */
-    overflow: hidden; /* Hide overflowing parts of the image */
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-single-image {
