@@ -75,7 +75,6 @@ main {
 }
 
 #hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-background.jpg');
     background-size: cover;
     background-position: center;
     color: white;
@@ -84,49 +83,31 @@ main {
     align-items: center;
     justify-content: center;
     text-align: center;
+    position: relative; /* Added for image positioning */
+    overflow: hidden; /* Hide overflowing parts of the image */
 }
 
-.hero-content {
-    max-width: 800px;
-}
-
-#hero h2 {
-    color: white;
-    font-size: 3rem;
-    font-weight: 700;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-}
-
-#hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
-
-.hero-static {
-    position: relative;
-    width: 100%;
-    height: 100%; /* Occupy full height of #hero */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    overflow: hidden; /* Ensure image doesn't overflow */
-}
-
-.hero-static img {
+.hero-single-image {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-single-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the area, cropping if necessary */
     object-position: center;
     z-index: -1; /* Place image behind content */
 }
 
-/* Adjust hero content for static image */
-#hero .hero-content {
+.hero-content {
+    max-width: 800px;
     position: relative; /* Ensure content is above the image */
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.5); /* Add a dark overlay for readability */
@@ -339,9 +320,72 @@ form button {
 }
 
 /* --- New Sections --- */
+/* --- New Sections --- */
 #beneficios, #testimonios {
     background-color: var(--color-surface);
 
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.benefit-item .icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjusted min-width for more cards */
+    gap: 30px;
+    justify-content: center; /* Center items in the grid */
+    padding-bottom: 20px;
+}
+
+@media (min-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns for larger screens */
+    }
+}
+
+.product-card {
+    background-color: var(--color-surface);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card h4, .product-card p {
+    padding: 0 20px;
+}
+
+.product-card h4 {
+    margin-top: 15px;
+    color: #333;
+}
+
+.product-card p {
+    padding-bottom: 20px;
+    color: #666;
 }
 
 .benefits-grid {
@@ -659,44 +703,22 @@ form button {
     margin-top: 20px;
 }
 
-/* --- Video Carousel --- */
-.video-carousel-container {
+/* --- Video Section --- */
+.video-container {
     position: relative;
-}
-
-.video-carousel {
-    display: flex;
-    overflow-x: auto;
-    gap: var(--carousel-gap);
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 20px;
-    scrollbar-width: none;
-}
-
-.video-carousel::-webkit-scrollbar {
-    display: none;
-}
-
-.video-slide {
-    flex: 0 0 100%;
-    scroll-snap-align: start;
-    position: relative;
+    width: 100%;
+    max-width: 800px; /* Max width for the video */
+    margin: 0 auto; /* Center the video */
     padding-top: 56.25%; /* 16:9 Aspect Ratio */
 }
 
-.video-slide iframe {
+.video-container iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     border-radius: 8px;
-}
-
-.video-carousel-container .carousel-btn {
-    display: flex;
 }
 
 /* --- Custom Header Styles --- */
