@@ -100,21 +100,7 @@ main section {
     margin-bottom: 2rem;
 }
 
-.hero-slide {
-    position: relative;
-    width: 100%;
-    height: 80vh; /* Match the hero section height */
-}
 
-.hero-slide img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* This is the key property */
-    object-position: center;
-}
 
 
 
