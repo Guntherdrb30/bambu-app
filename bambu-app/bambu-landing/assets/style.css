@@ -34,10 +34,11 @@ body {
 
 /* --- Header & Footer --- */
 footer {
-    background-color: var(--color-surface); /* Use variable */
-    padding: 20px 0; /* Increased padding */
+    background-color: black;
+    color: white;
+    padding: 20px 0;
     text-align: center;
-    border-bottom: 1px solid var(--color-border); /* Use variable */
+    border-bottom: 1px solid var(--color-border);
 }
 
 footer {
@@ -760,10 +761,7 @@ header {
     color: var(--color-primary); /* Use existing primary color for hover */
 }
 
-/* --- Custom Footer Styles --- */
-footer p {
-    color: #000; /* Black text for the new footer */
-}
+
 
 /* --- Image Sizing Fixes --- */
 
