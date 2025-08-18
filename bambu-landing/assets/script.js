@@ -64,39 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
             await submitLead(data, false, submitButton);
         });
 
-        // --- Hero Carousel Logic ---
-        const heroCarousel = document.querySelector('#hero .hero-carousel');
-        if (heroCarousel) {
-            const heroSlides = heroCarousel.querySelectorAll('.hero-slide');
-            const prevBtn = heroCarousel.querySelector('.hero-btn.prev');
-            const nextBtn = heroCarousel.querySelector('.hero-btn.next');
-            let currentSlide = 0;
-
-            const showSlide = (index) => {
-                heroSlides.forEach((slide, i) => {
-                    slide.classList.remove('active');
-                    if (i === index) {
-                        slide.classList.add('active');
-                    }
-                });
-            };
-
-            const nextSlide = () => {
-                currentSlide = (currentSlide + 1) % heroSlides.length;
-                showSlide(currentSlide);
-            };
-
-            const prevSlide = () => {
-                currentSlide = (currentSlide - 1 + heroSlides.length) % heroSlides.length;
-                showSlide(currentSlide);
-            };
-
-            nextBtn.addEventListener('click', nextSlide);
-            prevBtn.addEventListener('click', prevSlide);
-
-            // Optional: Auto-advance slides
-            // setInterval(nextSlide, 5000); // Change slide every 5 seconds
-        }
+        
 
         // --- Product Carousel Logic ---
         const productGrid = document.querySelector('.product-grid');
