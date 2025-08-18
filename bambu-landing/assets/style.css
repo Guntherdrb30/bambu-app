@@ -100,37 +100,23 @@ main section {
     margin-bottom: 2rem;
 }
 
-.hero-static {
+.hero-slide {
     position: relative;
     width: 100%;
     height: 80vh; /* Match the hero section height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    overflow: hidden; /* Ensure image doesn't overflow */
 }
 
-.hero-static img {
+.hero-slide img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* This is the key property */
     object-position: center;
-    z-index: -1; /* Place image behind content */
 }
 
-/* Adjust hero content for static image */
-#hero .hero-content {
-    position: relative; /* Ensure content is above the image */
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.5); /* Add a dark overlay for readability */
-    padding: 20px;
-    border-radius: 8px;
-}
+
 
 /* --- Buttons --- */
 .cta-button,
@@ -726,38 +712,4 @@ footer p {
     flex-grow: 1;
 }
 
-/* --- Ficha Tecnica Table --- */
-.ficha-tecnica-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 1rem;
-    text-align: left;
-}
 
-.ficha-tecnica-table th,
-.ficha-tecnica-table td {
-    padding: 12px 15px;
-    border: 1px solid var(--color-border);
-}
-
-.ficha-tecnica-table thead th {
-    background-color: var(--color-primary);
-    color: white;
-    font-weight: bold;
-}
-
-.ficha-tecnica-table tbody tr:nth-of-type(even) {
-    background-color: var(--color-background);
-}
-
-.ficha-tecnica-table .table-section-header {
-    background-color: var(--color-surface);
-    font-weight: bold;
-    text-align: center;
-}
-
-.ficha-tecnica-table ul {
-    padding-left: 20px;
-    margin: 0;
-}
