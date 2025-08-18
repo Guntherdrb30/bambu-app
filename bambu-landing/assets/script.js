@@ -100,6 +100,43 @@ document.addEventListener('DOMContentLoaded', () => {
             window.addEventListener('resize', updateButtonState);
             setTimeout(updateButtonState, 100); // Initial check
         }
+
+        // --- Perfiles Carousel Logic ---
+        const perfilesGrid = document.querySelector('.perfiles-grid');
+        if (perfilesGrid) {
+            const prevBtn = document.querySelector('#perfiles-aluminio .carousel-btn.prev');
+            const nextBtn = document.querySelector('#perfiles-aluminio .carousel-btn.next');
+            
+            const scrollCarousel = (direction) => {
+                const card = perfilesGrid.querySelector('.product-card');
+                if (!card) return; // No cards, do nothing
+
+                const gap = 30; // Must match the 'gap' in CSS
+                const scrollAmount = card.offsetWidth + gap;
+
+                perfilesGrid.scrollBy({
+                    left: scrollAmount * direction,
+                    behavior: 'smooth'
+                });
+            };
+
+            nextBtn.addEventListener('click', () => scrollCarousel(1));
+            prevBtn.addEventListener('click', () => scrollCarousel(-1));
+
+            const updateButtonState = () => {
+                if (!prevBtn || !nextBtn) return;
+                // A small tolerance is needed for floating point inaccuracies
+                const isAtStart = perfilesGrid.scrollLeft < 10;
+                const isAtEnd = perfilesGrid.scrollLeft + perfilesGrid.clientWidth >= perfilesGrid.scrollWidth - 10;
+
+                prevBtn.disabled = isAtStart;
+                nextBtn.disabled = isAtEnd;
+            };
+
+            perfilesGrid.addEventListener('scroll', updateButtonState);
+            window.addEventListener('resize', updateButtonState);
+            setTimeout(updateButtonState, 100); // Initial check
+        }
     }
 
     async function submitLead(data, openWhatsApp, submitButton) {
