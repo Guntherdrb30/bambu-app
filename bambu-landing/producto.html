@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Producto - Bambu App</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo="/>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <header>
+        <nav class="top-bar container">
+            <div class="logo">
+                <a href="index.html"><img src="assets/images/logo-carpihogar.jpg" alt="Logo Carpihogar"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#producto" class="tech-link">Volver a Productos</a></li>
+                <li>
+                    <a href="#" id="cart-icon-link" class="cart-icon-container">
+                        🛒 <span id="cart-count-badge" class="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- El contenido del producto se insertará aquí con JavaScript -->
+            <div id="product-detail-container" class="product-detail-layout">
+                <!-- Columna de Imágenes -->
+                <div class="product-images">
+                    <div class="main-image-container">
+                        <img id="main-product-image" src="" alt="Imagen principal del producto">
+                    </div>
+                </div>
+                <!-- Columna de Información -->
+                <div class="product-info">
+                    <h1 id="product-name">Nombre del Producto</h1>
+                    <p id="product-description">Descripción del producto...</p>
+                    <div id="product-price" class="price">0.00 $</div>
+                    <button id="add-to-cart-btn" class="cta-button">Añadir al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Incluiremos el modal del carrito y el script al final -->
+    <script src="assets/script.js"></script>
+</body>
+</html>

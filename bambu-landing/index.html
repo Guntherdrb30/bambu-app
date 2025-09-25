@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Bambu App</title>
+    <!-- Favicon temporal para evitar errores 404 -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo="/>
+    <!-- Estilos globales -->
+    <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+    <!-- Barra superior con logo y enlaces de navegación -->
+    <header>
+        <nav class="top-bar container">
+            <!-- Logo a la izquierda -->
+            <div class="logo">
+                <img src="assets/images/logo-carpihogar.jpg" alt="Logo Carpihogar"/>
+            </div>
+            <!-- Enlaces a la derecha -->
+            <ul class="nav-links">
+                <li>
+                    <a href="#" id="cart-icon-link" class="cart-icon-container">
+                        🛒 <span id="cart-count-badge" class="cart-count">0</span>
+                    </a>
+                </li>
+                <!-- Enlace interno para ir a la sección de ficha técnica -->
+                <li><a href="#ficha-tecnica" class="tech-link">Ficha técnica</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Nueva Sección Hero Principal -->
+    <section id="hero-main">
+        <img src="assets/images/hero1.png" alt="Láminas de Fibra de Bambú" class="hero-main-image">
+        <div class="hero-main-content">
+            <h1>LÁMINAS DE FIBRA DE BAMBU</h1>
+            <p>Transforma tus espacios con la belleza y sostenibilidad del bambú.</p>
+            <button id="open-modal-btn" class="cta-button">Cotizar por WhatsApp</button>
+        </div>
+    </section>
+
+    <main>
+        <!-- Sección de beneficios (sin cambios en contenido) -->
+        <section id="beneficios">
+            <div class="container">
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <span class="icon">🌿</span>
+                        <h4>Sostenible</h4>
+                        <p>Un recurso renovable y amigable con el planeta.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="icon">💪</span>
+                        <h4>Durable</h4>
+                        <p>Resistencia y longevidad para tus proyectos.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="icon">✨</span>
+                        <h4>Estética Única</h4>
+                        <p>Aporta calidez y un estilo natural inigualable Resistente a la Humedad y Retardante al Fuego.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de productos (sin cambios notables en contenido) -->
+        <section id="producto">
+            <div class="container">
+                <h3>Nuestro Producto</h3>
+                <div class="carousel-container">
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <a href="producto.html?id=lamina-122"><img src="assets/images/hero2.png" alt="Lámina de bambú 122 cm"/></a>
+                            <h4>Medida 1.22m x 3.00m</h4>
+                            <p>Ideal para revestimientos amplios.</p>
+                            <h4>Precio 110 $</h4>
+                            <a href="https://wa.me/584245262306?text=Hola,%20me%20interesa%20la%20Lámina%20de%20bambú%20Medida%201.22m%20x%203.00m%20(Precio%20110%20$)" target="_blank" class="cta-button-secondary">Comprar Ahora</a>
+                            <button class="cta-button add-to-cart-btn" data-product-id="lamina-122">Añadir al Carrito</button>
+                        </div>
+                        <div class="product-card">
+                            <a href="producto.html?id=lamina-60"><img src="assets/images/hero1.png" alt="Lámina de bambú 60 cm"/></a>
+                            <h4>Medida 0.60m x 3.00m</h4>
+                            <p>Perfecta para mobiliario y detalles.</p>
+                            <h4>Precio 60 $</h4>
+                            <a href="https://wa.me/584245262306?text=Hola,%20me%20interesa%20la%20Lámina%20de%20bambú%20Medida%200.60m%20x%203.00m%20(Precio%2060%20$)" target="_blank" class="cta-button-secondary">Comprar Ahora</a>
+                            <button class="cta-button add-to-cart-btn" data-product-id="lamina-60">Añadir al Carrito</button>
+                        </div>
+                        
+                        <div class="product-card">
+                            <a href="producto.html?id=lamina-40"><img src="assets/images/hero3.png" alt=" lámina de bambú de 40 cm"/></a>
+                            <h4>Medida de 40 cm x 3.00m </h4>
+                            <p>Ideal para proyectos personalizados.</p>
+                            <h4>Precio 48 $</h4>
+                            <a href="https://wa.me/584245262306?text=Hola,%20me%20interesa%20la%20Lámina%20de%20bambú%20Medida%20de%2040%20cm%20x%203.00m%20(Precio%2048%20$)" target="_blank" class="cta-button-secondary">Comprar Ahora</a>
+                            <button class="cta-button add-to-cart-btn" data-product-id="lamina-40">Añadir al Carrito</button>
+                        </div>
+                        <div class="product-card">
+                            <a href="producto.html?id=perfil-aluminio"><img src="assets/images/perfil2.jpg" alt=" Perfil de aluminio 3 metros "/></a>
+                            <h4>Medida 3 metros de largo colores variados </h4>
+                            <p>Para mejorar acabados y estética.</p>
+                            <h4>Precio 10 $</h4>
+                            <a href="https://wa.me/584245262306?text=Hola,%20me%20interesa%20el%20Perfil%20de%20aluminio%203%20metros%20(Precio%2010%20$)" target="_blank" class="cta-button-secondary">Comprar Ahora</a>
+                            <button class="cta-button add-to-cart-btn" data-product-id="perfil-aluminio">Añadir al Carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de ficha técnica: destino del enlace "Ficha técnica" -->
+        <section id="ficha-tecnica">
+            <div class="container">
+                <h3>Ficha Técnica</h3>
+                <h4>Láminas de fibra de Bambú</h4>
+                <ul>
+                    <li><strong>Espesor:</strong> 8 mm</li>
+                    <li><strong>Presentaciones (ancho):</strong>
+                        <ul>
+                            <li>122 cm</li>
+                            <li>60 cm</li>
+                            <li>40 cm</li>
+                        </ul>
+                    </li>
+                    <li><strong>Largo:</strong> 3 metros para todas las presentaciones</li>
+                </ul>
+
+                <h4>Valores Fuertes</h4>
+                <ul>
+                    <li>Resistente a la humedad</li>
+                    <li>Retardante al fuego</li>
+                    <li>Acabados únicos melamínico de alta calidad resistente al rayado</li>
+                </ul>
+
+                <h4>Ventajas</h4>
+                <ul>
+                    <li>Fácil instalación y moldeable con calor</li>
+                    <li>Fácil cortado</li>
+                </ul>
+                <a href="https://wa.me/584245262306?text=deseo%20saber%20mas%20sobre%20el%20producto" class="cta-button" target="_blank">Saber más</a>
+            </div>
+        </section>
+
+        
+
+        <!-- Sección de contacto (sin cambios en contenido) -->
+        <section id="contacto">
+            <div class="container">
+                <h3>¿Tienes una consulta general?</h3>
+                <p>Si deseas asesoramiento para tu cotizacion, déjanos tu mensaje y te contactaremos a la brevedad.</p>
+                <form id="contact-form">
+                    <label for="contact-name">Nombre</label>
+                    <input type="text" id="contact-name" placeholder="Tu nombre completo"/>
+                    <label for="contact-email">Email</label>
+                    <input type="email" id="contact-email" placeholder="ejemplo@correo.com"/>
+                    <label for="contact-phone">Teléfono</label>
+                    <input type="tel" id="contact-phone" placeholder="Tu número de teléfono"/>
+                    <label for="contact-notes">Mensaje</label>
+                    <textarea id="contact-notes" placeholder="Escribe aquí tu consulta..."></textarea>
+                    <button type="submit" class="cta-button-secondary">Enviar Mensaje</button>
+                </form>
+            </div>
+        </section>
+
+        
+    <footer>
+        <div class="container">
+            <p>Desarrollado por trends172 Technology</p>
+        </div>
+    </footer>
+
+    <!-- Modal del Carrito de Compras -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn cart-close-btn">&times;</span>
+            <h3>Mi Carrito de Compras</h3>
+            <div id="cart-items-container">
+                <!-- Los items del carrito se insertarán aquí -->
+                <p>Tu carrito está vacío.</p>
+            </div>
+            <div class="cart-summary">
+                <strong>Total: <span id="cart-total">0.00 $</span></strong>
+            </div>
+            <button id="checkout-btn" class="cta-button">Proceder al Pago</button>
+        </div>
+    </div>
+
+    <!-- Modal para cotizar por WhatsApp (sin cambios) -->
+    <div id="whatsapp-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Cotizar por WhatsApp</h3>
+            <form id="whatsapp-form">
+                <p>Indica las cantidades que necesitas:</p>
+                <div>
+                    <label for="qty_122x300">1.22m x 3.00m</label>
+                    <input type="number" id="qty_122x300" value="0" min="0"/>
+                </div>
+                <div>
+                    <label for="qty_60x300">0.60m x 3.00m</label>
+                    <input type="number" id="qty_60x300" value="0" min="0"/>
+                </div>
+                <div>
+                    <label for="qty_40x300">0.40m x 3.00m</label>
+                    <input type="number" id="qty_40x300" value="0" min="0"/>
+                </div>
+
+                <p>Completa tus datos de contacto:</p>
+                <label for="modal-name">Nombre</label>
+                <input type="text" id="modal-name" placeholder="Tu nombre completo"/>
+                <label for="modal-email">Email</label>
+                <input type="email" id="modal-email" placeholder="ejemplo@correo.com"/>
+                <label for="modal-phone">Teléfono (requerido para WhatsApp)</label>
+                <input type="tel" id="modal-phone" placeholder="Tu número para contactarte" required/>
+                <label for="modal-city">Ciudad</label>
+                <input type="text" id="modal-city" placeholder="Ciudad de envío"/>
+                <label for="modal-notes">Notas adicionales</label>
+                <textarea id="modal-notes" placeholder="Cualquier detalle extra..."></textarea>
+                <button type="submit" class="cta-button">Enviar y Abrir WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts de comportamiento -->
+    <script src="assets/script.js"></script>
+    <!-- Los scripts de la página de producto no son necesarios aquí -->
+</body>
+</html>
